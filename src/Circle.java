@@ -1,6 +1,3 @@
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 public class Circle {
     double radius, diameter, circumference, area, chord_len;
 
@@ -10,7 +7,7 @@ public class Circle {
     }
 
     public Circle(){
-        this.setRadius(15);
+        setRadius(15);
     }
 
     public Circle(double radiusIn){
