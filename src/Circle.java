@@ -35,14 +35,14 @@ public class Circle {
     }
 
     public String toString() {
-        String circleInfo;
+
         StringBuilder sb = new StringBuilder();
         sb.append("Radius = " + getRadius());
         sb.append("\nDiameter = " + calculateDiameter());
         sb.append("\nArea = " + calculateArea());
         sb.append("\nCircumference = " + calculateCircumference());
-        circleInfo = sb.toString();
-        return circleInfo;
+
+        return sb.toString();
     }
 }
 
