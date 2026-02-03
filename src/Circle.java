@@ -1,9 +1,12 @@
 public class Circle {
-    double radius, diameter, circumference, area, chord_len;
+    double radius;
 
     void main(String[] args) {
-        Circle myCircle = new Circle(15);
-        System.out.println(myCircle.toString());
+        Circle circle1 = new Circle(18);
+        Circle circle2 = new Circle();
+
+        System.out.println(circle1);
+        System.out.println(circle2);
     }
 
     public Circle(){
@@ -35,14 +38,10 @@ public class Circle {
     }
 
     public String toString() {
-
-        StringBuilder sb = new StringBuilder();
-        sb.append("Radius = " + getRadius());
-        sb.append("\nDiameter = " + calculateDiameter());
-        sb.append("\nArea = " + calculateArea());
-        sb.append("\nCircumference = " + calculateCircumference());
-
-        return sb.toString();
+        return "\nRadius = " + getRadius() +
+                "\nDiameter = " + calculateDiameter() +
+                "\nArea = " + calculateArea() +
+                "\nCircumference = " + calculateCircumference();
     }
 }
 
