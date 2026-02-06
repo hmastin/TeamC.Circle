@@ -1,5 +1,6 @@
 public class Circle {
-    double radius;
+    private double radius;
+
 
     void main(String[] args) {
         Circle circle1 = new Circle(18);
@@ -22,7 +23,13 @@ public class Circle {
     }
 
     void setRadius(double radius_In){
-        radius = radius_In;
+        if (radius <= 0) {
+            this.radius = 1.0;
+        }
+        else {
+            radius = radius_In;
+        }
+
     }
 
     double calculateDiameter(){
@@ -34,7 +41,11 @@ public class Circle {
     }
 
     double calculateArea(){
-        return Math.PI * Math.pow(getRadius(), 2);
+
+        if(radius < 4.469*Math.pow(10,153)){
+            return Math.PI * Math.pow(getRadius(), 2);
+        }
+        return -1;
     }
 
     public String toString() {
