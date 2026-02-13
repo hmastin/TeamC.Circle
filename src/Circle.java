@@ -1,13 +1,16 @@
 public class Circle {
+    // the area calculation is radius^2 * pi
+    // to prevent overflow, the radius can't be larger than
+    // sqrt(Double.MAX_VALUE/Math.PI) or 4.2678378161541536E153
+    final double RADIUS_MAX = Math.sqrt(Double.MAX_VALUE/Math.PI)+1E137;
     private double radius;
 
 
     void main(String[] args) {
-        Circle circle1 = new Circle(18);
-        Circle circle2 = new Circle();
+        Circle circle1 = new Circle(RADIUS_MAX);
 
+        System.out.println(Double.MAX_VALUE/Math.PI);
         System.out.println(circle1);
-        System.out.println(circle2);
     }
 
     public Circle(){
@@ -23,13 +26,12 @@ public class Circle {
     }
 
     void setRadius(double radius_In){
-        if (radius <= 0) {
+        if (radius_In <= 0 || radius_In > RADIUS_MAX) {
             this.radius = 1.0;
         }
         else {
             radius = radius_In;
         }
-
     }
 
     double calculateDiameter(){
@@ -41,11 +43,7 @@ public class Circle {
     }
 
     double calculateArea(){
-
-        if(radius < 4.469*Math.pow(10,153)){
-            return Math.PI * Math.pow(getRadius(), 2);
-        }
-        return -1;
+        return Math.PI * Math.pow(getRadius(), 2);
     }
 
     public String toString() {
